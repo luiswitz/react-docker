@@ -1,0 +1,10 @@
+sudo: required
+
+services:
+  - docker
+
+before_install:
+  - docker build -t luiswitz/react-docker -f Dockerfile.dev .
+
+script:
+  - docker run luiswitz/react-docker npm run test -- --coverage
